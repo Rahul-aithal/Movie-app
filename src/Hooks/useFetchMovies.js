@@ -14,41 +14,41 @@ import React, { useEffect, useState } from 'react'
 
 function useFetchMovies() {
 
-const [error, setError] = useState()
-const [loading, setLoading] = useState(false)
-const [data,setData]=useState([])
+  const [error, setError] = useState()
+  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState([])
 
- useEffect(() => {
-setData([]);
-setLoading(true);
-setError();
-;(async ()=>{
-    try {
-        
+  useEffect(() => {
+    setData([]);
+    setLoading(true);
+    setError();
+    ; (async () => {
+      try {
+
         const response = await axios.request(options);
         console.log(response?.data);
-        setData( response)
-       
-    } catch (error) {
+        setData(response)
+
+      } catch (error) {
         console.error(error);
         setError(error)
-     
-    }finally{
+
+      } finally {
         setLoading(false)
-    }
-    
-})()
+      }
 
-    
- }, []);
+    })()
 
 
- return{
+  }, []);
+
+
+  return {
     data,
     loading,
     error
- }
-  
+  }
+
 }
 
 export default useFetchMovies
