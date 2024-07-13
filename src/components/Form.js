@@ -1,9 +1,10 @@
+import { clear } from "@testing-library/user-event/dist/clear";
 import { useForm } from "react-hook-form";
 
 function Form({
   setUser
 }) {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit,reset ,formState: { errors } } = useForm({
     defaultValues: {
       firstName: '',
       lastName: '',
@@ -18,14 +19,14 @@ function Form({
   });
 
   const onSubmit = (data) => {
-    alert("Thanks")
-    console.log(data);
-    setUser(data)
+    setUser(data);
+    reset();
   };
 
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="space-y-12 p-2">
+    <form onSubmit={handleSubmit(onSubmit)} >
+      <div className="space-y-12 px-4 m-1 py-2">
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">Profile</h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">
@@ -190,7 +191,9 @@ function Form({
           </div>
         </div>
         <div className="mt-6 flex items-center justify-start gap-x-6">
-          <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+          <button type="button" className="text-sm font-semibold leading-6 text-gray-100 border border-black p-1 rounded-xl bg-gray-700" onClick={()=>{
+            reset()
+          }}>
             Cancel
           </button>
           <button
