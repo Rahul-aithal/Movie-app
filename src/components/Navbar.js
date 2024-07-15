@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 const Navbar = () => {
     return (
-        <nav className='bg-blue-900 flex text-blue-100 items-center justify-center h-16'>
+        <nav className='bg-blue-900 flex text-blue-100 items-center justify-center h-16 sticky top-0 bg-opacity-75 '>
             <ul className='flex gap-4 items-center m-2'>
                 <NavLink to='/' className={({ isActive }) => `p-2 cursor-pointer duration-0 hover:duration-150 hover:text-white font-bold ${isActive ? "text-white " : ""}`} >Home</NavLink>
                 <NavLink to='/about' className={({ isActive }) => `p-2 cursor-pointer duration-0 hover:duration-150 hover:text-white font-bold ${isActive ? "text-white " : ""}`} > About</NavLink>
