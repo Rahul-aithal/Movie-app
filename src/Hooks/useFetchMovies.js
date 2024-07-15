@@ -1,16 +1,5 @@
 import axios from 'axios';
-
-const options = {
-  method: 'GET',
-  url: 'https://imdb-top-100-movies.p.rapidapi.com/',
-  headers: {
-    'x-rapidapi-key': process.env.REACT_APP_X_RAPIDAPI_KEY,
-    'x-rapidapi-host': process.env.REACT_APP_X_RAPIDAPI_HOST,
-  }
-};
-
-
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function useFetchMovies() {
 
@@ -25,9 +14,9 @@ function useFetchMovies() {
     ; (async () => {
       try {
 
-        const response = await axios.request(options);
-        console.log(response?.data);
-        setData(response)
+        const response = await axios.get(`http://www.omdbapi.com/?s=batman&apikey=${process.env.REACT_APP_X_OMDB_API_KEY}`);
+        
+        setData(response?.data.Response?(response?.data.Search):null)
 
       } catch (error) {
         console.error(error);
