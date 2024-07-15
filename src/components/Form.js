@@ -1,4 +1,3 @@
-import { clear } from "@testing-library/user-event/dist/clear";
 import { useForm } from "react-hook-form";
 
 function Form({
@@ -75,7 +74,7 @@ function Form({
                   {...register('email', {
                     required: 'Email is required',
                     pattern: {
-                      value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                      value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
                       message: 'Invalid email address'
                     }
                   })}
